@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+</head>
+
+<body>
+    <button onclick="sendMail()">Send Email</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        sendMail = () => {
+            $.ajax({
+                type: 'POST',
+                url: './smtp.php',
+                data: {
+                    action: 'send_mail'
+                },
+                success: function (response, status) {
+                    console.log(response)
+                },
+                error: function (error) {
+                    console.log("error")
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
